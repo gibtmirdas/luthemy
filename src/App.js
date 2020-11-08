@@ -97,7 +97,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("localStorageKey");
     localStorage.setItem(SPEED_STORAGE_KEY, speed);
   }, [speed]);
 
