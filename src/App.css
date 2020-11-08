@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "Bravura";
+  src: local("Bravura"), url(./assets/fonts/Bravura.woff2) format("woff2");
+}
+
+body {
+  font-family: Bravura;
+  font-style: italic;
+  background-color: #f2eecb;
+}
