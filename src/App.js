@@ -34,6 +34,8 @@ const theme = createMuiTheme({
   },
 });
 
+const Version = styled.div``;
+
 function App() {
   const [timeoutRef, setTimeoutRef] = useState(null);
   const [speed, setSpeed] = useState(2.0);
@@ -142,6 +144,7 @@ function App() {
             <PlayerTrigger />
             <Params />
             <Instruments />
+            <Version>v1.2</Version>
           </MuiThemeProvider>
         </AppStyled>
       </StateContext.Provider>
