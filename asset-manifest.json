@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/luthemy/static/css/main.fbb404a8.chunk.css",
-    "main.js": "/luthemy/static/js/main.f6922129.chunk.js",
-    "main.js.map": "/luthemy/static/js/main.f6922129.chunk.js.map",
+    "main.js": "/luthemy/static/js/main.b802caff.chunk.js",
+    "main.js.map": "/luthemy/static/js/main.b802caff.chunk.js.map",
     "runtime-main.js": "/luthemy/static/js/runtime-main.18a13587.js",
     "runtime-main.js.map": "/luthemy/static/js/runtime-main.18a13587.js.map",
     "static/js/2.e91a8048.chunk.js": "/luthemy/static/js/2.e91a8048.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.18a13587.js",
     "static/js/2.e91a8048.chunk.js",
     "static/css/main.fbb404a8.chunk.css",
-    "static/js/main.f6922129.chunk.js"
+    "static/js/main.b802caff.chunk.js"
   ]
 }
