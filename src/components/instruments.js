@@ -16,7 +16,7 @@ function Instruments() {
 
   useEffect(() => {
     if (state === PlayingStates.SOUND) {
-      midiSounds.playChordNow(instrumentId, [note.pitch], 2);
+      midiSounds.playChordNow(instrumentId, note.pitch, 2);
     }
   }, [state, midiSounds, note]);
 

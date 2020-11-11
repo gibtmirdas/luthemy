@@ -20,12 +20,10 @@ function Params() {
             { value: 1, label: "1" },
             { value: 2, label: "2" },
             { value: 3, label: "3" },
-            { value: 4, label: "4" },
-            { value: 5, label: "5" },
           ]}
           color={"secondary"}
           min={0}
-          max={5}
+          max={3}
           step={0.1}
           valueLabelDisplay={"auto"}
           value={speed}
