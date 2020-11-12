@@ -144,7 +144,7 @@ function App() {
             <PlayerTrigger />
             <Params />
             <Instruments />
-            <Version>v1.3</Version>
+            <Version>v1.4</Version>
           </MuiThemeProvider>
         </AppStyled>
       </StateContext.Provider>

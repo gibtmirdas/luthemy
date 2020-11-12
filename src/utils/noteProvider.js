@@ -5,7 +5,7 @@ const Notes = [
   { value: "a", nbAccents: 2, isTop: false, pitch: [3 + 12 * 3, 3 + 12 * 4] },
   { value: "a", nbAccents: 3, isTop: false, pitch: [1 + 12 * 3, 1 + 12 * 4] },
   { value: "4", nbAccents: 0, isTop: false, pitch: [11 + 12 * 2, 11 + 12 * 3] },
-  { value: "5", nbAccents: 0, isTop: false, pitch: [10 + 12 * 2, 10 + 12 * 3] },
+  { value: "5", nbAccents: 0, isTop: false, pitch: [9 + 12 * 2, 9 + 12 * 3] },
   { value: "6", nbAccents: 0, isTop: false, pitch: [8 + 12 * 2, 8 + 12 * 3] },
 ];
 
