@@ -1,9 +1,9 @@
 // @ts-nocheck
 import {
-  createMuiTheme,
   LinearProgress,
   MuiThemeProvider,
 } from "@material-ui/core";
+import { createTheme } from '@material-ui/core/styles';
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import "./App.css";
@@ -15,7 +15,9 @@ import SpeedContext from "./contexts/speedContext";
 import { GetNote } from "./utils/noteProvider";
 import PlayingStates from "./states/playingStates";
 import { getProgressValue, SPEED_STORAGE_KEY } from "./utils/libs";
-import Instruments from "./components/instruments";
+import Instruments from "./components/InstrumentsClass";
+import Test from "./components/test";
+import InstrumentsClass from "./components/InstrumentsClass";
 
 const AppStyled = styled.div`
   margin: 0 auto;
@@ -26,7 +28,7 @@ const LinearProgressStyled = styled.div`
   margin: 2em 0 0em 0;
 `;
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     secondary: {
       main: "#686852",
@@ -143,7 +145,10 @@ function App() {
             </LinearProgressStyled>
             <PlayerTrigger />
             <Params />
-            <Instruments />
+            <StateContext.Consumer>
+              {value => <InstrumentsClass state={value.state} note={note}/>}
+            </StateContext.Consumer>
+            
             <Version>v1.4</Version>
           </MuiThemeProvider>
         </AppStyled>
