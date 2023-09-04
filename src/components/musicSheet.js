@@ -26,7 +26,7 @@ const Ligne = styled.div`
 const NoteContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   opacity: 0;
   &.displayed {
     opacity: 1;
@@ -37,7 +37,7 @@ const NoteContainer = styled.div`
 
 function MusicSheet() {
   const nbRows = 5;
-  const { state, note } = useContext(StateContext);
+  const { state, note, nextNote } = useContext(StateContext);
   if (!note) return <CircularProgress color={"secondary"} />;
   return (
     <SheetContainer>
@@ -48,15 +48,25 @@ function MusicSheet() {
       </Sheet>
       <NoteContainer
         className={
-          [PlayingStates.DISPLAY, PlayingStates.SOUND].includes(state)
+          [PlayingStates.DISPLAY, PlayingStates.NEXT, PlayingStates.SOUND].includes(state)
             ? "displayed"
             : ""
         }
       >
         <Note
+          display={false}
+        />
+        <Note
           value={note.value}
           nbAccents={note.nbAccents}
           isTop={note.isTop}
+          isLast={false}
+        />
+        <Note
+          value={nextNote.value}
+          nbAccents={nextNote.nbAccents}
+          isTop={nextNote.isTop}
+          isLast={true}
         />
       </NoteContainer>
     </SheetContainer>

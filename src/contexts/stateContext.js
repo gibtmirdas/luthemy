@@ -6,6 +6,8 @@ export const StateContext = createContext({
   state: PlayingStates.STOPPED,
   note: null,
   setNote: null,
+  nextNote: null,
+  setNextNote: null,
 });
 
 export default StateContext;

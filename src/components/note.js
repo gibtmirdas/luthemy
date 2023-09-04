@@ -2,9 +2,13 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import Accent from "./accent";
 
+
 const NoteContainer = styled.div`
-  margin-left: 1.4em;
-`;
+  display: flex;
+  flex: 1;
+  justify-content: ${props => props.$isLast ? "end" : "center"};
+  margin-left: ${props => props.$isLast ? "0" : "1.4em"};
+  `;
 
 const NoteStyled = styled.div`
   font-size: 1.8em;
@@ -44,6 +48,9 @@ const AccentContent = styled.div`
   bottom: 0.08em;
   color: red;
 `;
+const Hidden = styled(NoteContainer)`
+  visibility: hidden;
+`;
 
 const getAccent = (remainginIndex, content) => {
   if (remainginIndex === 1) return <Accent />;
@@ -71,12 +78,11 @@ const buildContent = (props) => {
 };
 
 const Note = (props) => (
-  <NoteContainer>
-    {props.isTop ? (
+  <NoteContainer $isLast={props.isLast}>{props.display ?
+    (props.isTop ?
       <NoteStyledTop>{buildContent(props)}</NoteStyledTop>
-    ) : (
-      <NoteStyled>{buildContent(props)}</NoteStyled>
-    )}
+      : <NoteStyled>{buildContent(props)}</NoteStyled>)
+    : <Hidden>{"nope"}</Hidden>}
   </NoteContainer>
 );
 Note.defaultProps = {
@@ -88,6 +94,8 @@ Note.defaultProps = {
   value: "a",
   nbAccents: 0,
   isTop: false,
+  display: true,
+  isLast: true,
 };
 
 export default Note;

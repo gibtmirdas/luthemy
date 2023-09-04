@@ -15,8 +15,6 @@ import SpeedContext from "./contexts/speedContext";
 import { GetNote } from "./utils/noteProvider";
 import PlayingStates from "./states/playingStates";
 import { getProgressValue, SPEED_STORAGE_KEY } from "./utils/libs";
-import Instruments from "./components/InstrumentsClass";
-import Test from "./components/test";
 import InstrumentsClass from "./components/InstrumentsClass";
 
 const AppStyled = styled.div`
@@ -44,12 +42,14 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [state, setStateTmp] = useState(PlayingStates.STOPPED);
   const [note, setNote] = useState(null);
+  const [nextNote, setNextNote] = useState(null);
   const [initTime, setIniTime] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(null);
 
   useEffect(() => {
     setNote(GetNote());
-    var speedStr = localStorage.getItem(SPEED_STORAGE_KEY);
+    setNextNote(GetNote());
+    const speedStr = localStorage.getItem(SPEED_STORAGE_KEY);
     if (speedStr) setSpeed(parseInt(speedStr));
   }, []);
 
@@ -61,13 +61,14 @@ function App() {
 
   const stateNext = () =>
     setTimeout(() => {
-      setNote(GetNote(note));
+      const next = nextNote;
+      setNextNote(GetNote(next));
+      setNote(next);
       nextState(PlayingStates.DISPLAY);
     }, 1000);
 
   // button trigger
   const triggerPlaying = (triggered) => {
-    if (triggered) setNote(GetNote());
     setIsPlaying(triggered);
     nextState(triggered ? PlayingStates.DISPLAY : PlayingStates.STOPPED);
   };
@@ -131,7 +132,7 @@ function App() {
   return (
     <SpeedContext.Provider value={{ speed, setSpeed }}>
       <StateContext.Provider
-        value={{ isPlaying, triggerPlaying, state, note, setNote }}
+        value={{ isPlaying, triggerPlaying, state, note, setNote, nextNote, setNextNote }}
       >
         <AppStyled className="App">
           <MuiThemeProvider theme={theme}>

@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState, Component } from "react";
+import { Component } from "react";
 import MIDISounds from "midi-sounds-react";
-import StateContext from "../contexts/stateContext";
 import PlayingStates from "../states/playingStates";
 
 const instrumentId = 246;
@@ -17,21 +16,12 @@ constructor(props) {
     if (this.props.state === PlayingStates.SOUND && !!this.props.note && !this.state.played) {
       this.midiSounds.playChordNow(instrumentId, this.props.note.pitch, 2.5);
       this.setState({ played: true });
-      // this.playTestInstrument.bind(this);
     } else
     if (this.props.state === PlayingStates.NEXT && this.state.played) {
       this.setState({ played: false });
 
     }
 }
-
-// componentDidMount() {
-//   if (this.props.state.state === PlayingStates.SOUND) {
-//     console.debug('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', );
-//     this.playTestInstrument.bind(this);
-//   }
-// }
-
   playTestInstrument() {
     console.debug('===> PLAY', this.midiSounds);
     this.midiSounds.playChordNow(instrumentId, [60], 2.5);
