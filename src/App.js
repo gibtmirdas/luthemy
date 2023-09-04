@@ -150,7 +150,7 @@ function App() {
               {value => <InstrumentsClass state={value.state} note={note}/>}
             </StateContext.Consumer>
             
-            <Version>v1.4</Version>
+            <Version>v1.5</Version>
           </MuiThemeProvider>
         </AppStyled>
       </StateContext.Provider>
